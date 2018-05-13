@@ -1,25 +1,33 @@
 public class Engine {
-  private int iHorses;
-  private int iMass;
+  private int horses;
+  private int mass;
   private Colour colour;
   
   public Engine() {
     colour = Colour.STEEL;
   }
-  
-  public int getMass() {
-    return this.iMass;
-  }
-  
+
   public int getHorses() {
-    return this.iHorses;
+    return horses;
   }
-  
-  public void setMass(int iMass) {
-    this.iMass = iMass;
+
+  public void setHorses(int horses) {
+    this.horses = horses;
   }
-  
-  public void setHorses(int iHorses) {
-    this.iHorses = iHorses;
+
+  public int getMass() {
+    return mass;
+  }
+
+  public void setMass(int mass) {
+    this.mass = mass;
+  }
+
+  public Colour getColour() {
+    return colour;
+  }
+
+  public void setColour(Colour colour) {
+    this.colour = colour;
   }
 }

@@ -1,4 +1,4 @@
-public class Vehicle {
+public class Vehicle implements Comparable<Vehicle> {
 	private String registration;
 	private Colour colour;
 	private Engine engine;
@@ -122,28 +122,68 @@ public class Vehicle {
 	      "    \\_/    " + carBody[4] + " \\_/\n");
 	}
 	
+	public int compareTo(Vehicle vehicle) {
+	  int thisPerformance = this.getEngine().getHorses() * 1000 / this.getMass();
+	  int thatPerformance = vehicle.getEngine().getHorses() * 1000 / vehicle.getMass();
+	  
+	  if (thisPerformance < thatPerformance) {
+	    return -1;
+	  } else if (thisPerformance > thatPerformance) {
+	    return 1;
+	  } else {
+	    return 0;
+	  }
+	}
+	
 	public static void main(String args[]) {
 	  // Create a SAAB 9000
-	  Vehicle vehicle = new Vehicle();
-	  Engine engine = new Engine();
-	  Colour colour = Colour.LTT;
-	  Manufacturer manufacturer = Manufacturer.SAAB;
-	  
-	  engine.setHorses(200);
-	  engine.setMass(200);
+	  Vehicle saabVehicle = new Vehicle();
+	  Engine saabEngine = new Engine();
 
-	  vehicle.setColour(colour);
-	  vehicle.setEngine(engine);
-	  vehicle.setManufacturer(manufacturer);
+	  saabEngine.setHorses(200);
+	  saabEngine.setMass(200);
+
+	  saabVehicle.setColour(Colour.LTT);
+	  saabVehicle.setEngine(saabEngine);
+	  saabVehicle.setManufacturer(Manufacturer.SAAB);
 	  
-	  vehicle.setLength(400);
-	  vehicle.setWidth(176);
-	  vehicle.setHeight(142);
-	  vehicle.setMass(1200);
+	  saabVehicle.setLength(400);
+	  saabVehicle.setWidth(176);
+	  saabVehicle.setHeight(142);
+	  saabVehicle.setMass(1200);
 	  
-	  vehicle.setRegistration("H982 FKL");
-	  vehicle.setName("Saab 9000");
+	  saabVehicle.setRegistration("H982 FKL");
+	  saabVehicle.setName("Saab 9000");
 	  
-	  vehicle.print();
+	  saabVehicle.print();
+	  
+	  // Create a Ford Fiesta
+    Vehicle fordVehicle = new Vehicle();
+    Engine fordEngine = new Engine();
+
+    fordEngine.setHorses(400);
+    fordEngine.setMass(200);
+
+    fordVehicle.setColour(Colour.RED);
+    fordVehicle.setEngine(fordEngine);
+    fordVehicle.setManufacturer(Manufacturer.FORD);
+    
+    fordVehicle.setLength(500);
+    fordVehicle.setWidth(176);
+    fordVehicle.setHeight(142);
+    fordVehicle.setMass(1100);
+    
+    fordVehicle.setRegistration("H982 FKL");
+    fordVehicle.setName("Ford Fiesta");
+    
+    fordVehicle.print();
+    
+    if (fordVehicle.compareTo(saabVehicle) == -1) {
+      System.out.println("The ford is slower than the saab");
+    } else if (fordVehicle.compareTo(saabVehicle) == 1) {
+      System.out.println("The ford is faster than the saab");
+    } else {
+      System.out.println("The ford is just as fast as the saab");
+    }
 	}
 }

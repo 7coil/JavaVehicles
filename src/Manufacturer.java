@@ -1,6 +1,7 @@
 
 public enum Manufacturer {
-  SAAB("Saab", "Sweden");
+  SAAB("Saab", "Sweden"),
+  FORD("Ford", "United States of America");
   
   private String name;
   private String country;
