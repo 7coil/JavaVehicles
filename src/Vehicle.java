@@ -117,7 +117,7 @@ public class Vehicle implements Comparable<Vehicle> {
 	      "\n" +
 	      "          " + this.getColour().colourText("/" + carBody[0] + "\\") + "\n" + 
 	      "         " + this.getColour().colourText("/ " + carBody[1] + " \\") + "\n" +
-	      "  " + this.getColour().colourText("|------  " + carBody[2] + "  --|") + "\n" +
+	      "  " + this.getColour().colourText("|¯¯¯¯¯¯  " + carBody[2] + "  ¯¯|") + "\n" +
 	      " \u001B[5m▀\u001B[0m" + this.getColour().colourText("|________" + carBody[3] + "____|") + "\n" +
 	      "    \\_/    " + carBody[4] + " \\_/\n");
 	}
