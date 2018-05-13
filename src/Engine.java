@@ -2,7 +2,7 @@ public class Engine {
   private int horses;
   private int mass;
   private Colour colour;
-  
+
   public Engine() {
     colour = Colour.STEEL;
   }

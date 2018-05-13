@@ -1,11 +1,15 @@
 
 public enum Manufacturer {
   SAAB("Saab", "Sweden"),
-  FORD("Ford", "United States of America");
-  
+  FORD("Ford", "United States of America"),
+  SEGA("SEGA", "Japan"),
+  TOYOTA("Toyota", "Japan"),
+  MITSUBISHI("Mitsubishi", "Japan"),
+  BMW("BMW", "Germany");
+
   private String name;
   private String country;
-  
+
   public String getName() {
     return name;
   }
