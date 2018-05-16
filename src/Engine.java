@@ -1,6 +1,7 @@
 public class Engine {
   private int horses;
   private int mass;
+  private Fuel fuel;
   private Colour colour;
 
   public Engine() {

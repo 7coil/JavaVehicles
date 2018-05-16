@@ -1,4 +1,4 @@
-public class Vehicle implements Comparable<Vehicle> {
+public class Vehicle implements Comparable<SpeedCalculatable>, SpeedCalculatable {
   private String registration;
   private Colour colour;
   private Engine engine;
@@ -125,13 +125,14 @@ public class Vehicle implements Comparable<Vehicle> {
         + " \\_/\n");
   }
 
-  public int compareTo(Vehicle vehicle) {
-    int thisPerformance = this.getEngine().getHorses() * 1000 / this.getMass();
-    int thatPerformance = vehicle.getEngine().getHorses() * 1000 / vehicle.getMass();
+  public float calculateSpeed() {
+    return this.getEngine().getHorses() / this.getMass();
+  }
 
-    if (thisPerformance < thatPerformance) {
+  public int compareTo(SpeedCalculatable vehicle) {
+    if (this.calculateSpeed() < vehicle.calculateSpeed()) {
       return -1;
-    } else if (thisPerformance > thatPerformance) {
+    } else if (this.calculateSpeed() > vehicle.calculateSpeed()) {
       return 1;
     } else {
       return 0;
@@ -181,12 +182,24 @@ public class Vehicle implements Comparable<Vehicle> {
 
     fordVehicle.print();
 
-    if (fordVehicle.compareTo(saabVehicle) == -1) {
+    if (fordVehicle.compareTo(saabVehicle) < 0) {
       System.out.println("The ford is slower than the saab");
-    } else if (fordVehicle.compareTo(saabVehicle) == 1) {
+    } else if (fordVehicle.compareTo(saabVehicle) > 0) {
       System.out.println("The ford is faster than the saab");
     } else {
       System.out.println("The ford is just as fast as the saab");
+    }
+    
+    Horse horse = new Horse();
+    
+    int fordHorseComparison = fordVehicle.compareTo(horse);
+    
+    if (fordHorseComparison < 0) {
+      System.out.println("The ford is slower than the horse");
+    } else if (fordHorseComparison > 0) {
+      System.out.println("The ford is faster than the horse");
+    } else {
+      System.out.println("The horse is just as fast as the ford");
     }
   }
 }

@@ -13,7 +13,11 @@ public enum Colour {
   private String szName;
 
   /**
+   * A thing that turns enums into colours. Includes a default name.
    * 
+   * @param r Red
+   * @param g Green
+   * @param b Blue
    */
   private Colour(int r, int g, int b) {
     this(r, g, b, "Untitled Colour");
@@ -22,10 +26,10 @@ public enum Colour {
   /**
    * A thing that turns enums into colours. Magic
    * 
-   * @param r
-   * @param g
-   * @param b
-   * @param szName
+   * @param r Red
+   * @param g Green
+   * @param b Blue
+   * @param szName The name of the colour.
    */
   private Colour(int r, int g, int b, String szName) {
     this.r = r;
@@ -61,6 +65,7 @@ public enum Colour {
   }
 
   public static void main(String args[]) {
+    System.out.println("Available colours");
     for (Colour colour : Colour.values()) {
       colour.printColour();
     }
