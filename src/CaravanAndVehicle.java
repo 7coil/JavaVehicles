@@ -24,8 +24,9 @@ public class CaravanAndVehicle extends Vehicle {
     this.caravanMass = caravanMass;
   }
   
-  public static void main(String yargs[]) {
-    // Create a SAAB 9000
+  public static void main(String yarrrgs[]) {
+    // Whoops did someone use "var" instead of "Vehicle"?
+    // Download Java 10 here: http://jdk.java.net/10/
     var saabVehicle = new Vehicle();
     Engine saabEngine = new Engine();
 
