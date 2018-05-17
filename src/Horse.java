@@ -4,7 +4,7 @@ public class Horse implements Comparable<SpeedCalculatable>, SpeedCalculatable {
   private int mass = 500;
   
   public float calculateSpeed() {
-    return HORSE/mass;
+    return (float) HORSE / (float) mass;
   }
 
   public int compareTo(SpeedCalculatable vehicle) {
