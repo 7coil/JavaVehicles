@@ -105,7 +105,7 @@ public class Vehicle implements Comparable<SpeedCalculatable>, SpeedCalculatable
     for (int i = 0; i < carBody.length; i++) {
       for (int j = 0; j < printLength; j++) {
         if (i == 0) {
-          carBody[i] += "¯";
+          carBody[i] += "Â¯";
         } else if (i == 1 && (j % 2) == 0) {
           carBody[i] += "|";
         } else if (i == 3) {
@@ -120,15 +120,20 @@ public class Vehicle implements Comparable<SpeedCalculatable>, SpeedCalculatable
         + this.getManufacturer().getCountry() + "\n" + "\n" + "          "
         + this.getColour().colourText("/" + carBody[0] + "\\") + "\n" + "         "
         + this.getColour().colourText("/ " + carBody[1] + " \\") + "\n" + "  "
-        + this.getColour().colourText("|¯¯¯¯¯¯  " + carBody[2] + "  ¯¯|") + "\n" + " \u001B[5m▀\u001B[0m"
+        + this.getColour().colourText("|¯¯¯¯¯¯  " + carBody[2] + "  ¯¯|") + "\n" + " \u001B[5mâ–€\u001B[0m"
         + this.getColour().colourText("|________" + carBody[3] + "____|") + "\n" + "    \\_/    " + carBody[4]
         + " \\_/\n");
+    System.out.println(String.format("Length: %d; Width: %d; Height: %d", this.getLength(), this.getWidth(), this.getHeight()));
+    System.out.println(String.format("Colour: %s, %s", this.getColour().colourText(this.getColour().getName()), this.getColour().getHex()));
+    System.out.println("Engine: ");
+    System.out.println(String.format("\tHorses: %d; Mass: %d", this.getEngine().getHorses(), this.getEngine().getMass()));
+    System.out.println(String.format("Registration: %s", this.getRegistration()));
+    System.out.println(String.format("Total Mass: %d", this.getMass()));
   }
 
   public float calculateSpeed() {
-    return this.getEngine().getHorses() / this.getMass();
+    return (float) this.getEngine().getHorses() / (float) this.getMass();
   }
-
   public int compareTo(SpeedCalculatable vehicle) {
     if (this.calculateSpeed() < vehicle.calculateSpeed()) {
       return -1;

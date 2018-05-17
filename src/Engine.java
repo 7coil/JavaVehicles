@@ -2,6 +2,14 @@ public class Engine {
   private int horses;
   private int mass;
   private Fuel fuel;
+  public Fuel getFuel() {
+    return fuel;
+  }
+
+  public void setFuel(Fuel fuel) {
+    this.fuel = fuel;
+  }
+
   private Colour colour;
 
   public Engine() {
